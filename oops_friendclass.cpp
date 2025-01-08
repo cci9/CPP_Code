@@ -1,57 +1,83 @@
-#include <iostream>
+#include <array>
+#include<iostream>
+#include<cmath>
+#include <istream>
+#include<string>
+
 using namespace std;
 
-class complex;
-
-class calculator
+class A;
+class B
 {
-public:
-    int add(int a, int b)
+    int b;
+    friend class A;
+    public:
+    B(int bb)
     {
-        return a + b;
+        b = bb;
     }
-    int sumrealcomplex(complex o1, complex o2);
-    int sumimagcomplex(complex o1, complex o2);
+    void sumdataB(A& t);
 };
-class complex
+
+class A
+{
+    int a;
+    friend class B;
+    public:
+    A(int aa)
+    {
+        a = aa;
+    }
+    void sumdataA(B& t)
+    {
+        int temp = a + t.b;
+        cout<<"sum of both class data is "<<temp<<endl;
+    }
+
+};
+void B::sumdataB(A& t)
+{
+    int temp = b + t.a;
+    cout<<"sum of both class data is "<<temp<<endl;
+}
+
+class Complex
 {
     int a, b;
-    // friend int calculator::sumrealcomplex(complex o1, complex o2);//however this will be cumbersome if you have 100
-    // of class functions to make friend. hence the alternate
-    //  way is to make that class as a friend
-    friend class calculator;
-
-public:
-    void setnum(int c, int d)
+    friend Complex sumComplex(Complex x1, Complex x2);
+    public:
+    void setData(int x, int y)
     {
-        a = c;
-        b = d;
+        a = x;
+        b = y;
     }
-    void printcomplex(void);
+    void getData()
+    {
+        cout<<"Complex numbrer is "<<a<<" + "<<b<<"i"<<endl;
+    }
 };
 
-void complex::printcomplex(void)
+Complex sumComplex(Complex x1, Complex x2)
 {
-    cout << "complex num is " << a << " + " << b << "*i\n";
-}
-int calculator::sumrealcomplex(complex o1, complex o2)
-{
-    return o1.a + o2.a;
-}
-int calculator::sumimagcomplex(complex o1, complex o2)
-{
-    return o1.b + o2.b;
-}
+    Complex x3;
+    x3.setData(x1.a+x2.a, x1.b+x2.b);
+    return x3;
+
+};
+
 int main()
 {
-    complex c1, c2;
-    c1.setnum(5, 8);
-    c1.printcomplex();
-    c2.setnum(3, 4);
-    c2.printcomplex();
-    calculator calc;
-    int resreal = calc.sumrealcomplex(c1, c2);
-    int resimag = calc.sumimagcomplex(c1, c2);
-    cout << "the sum of real and imag numbers of complex number of different class is " << resreal << " and " << resimag;
+    // A aaa(5);
+    // B bbb(7);
+    // bbb.sumdataB(aaa);
+    // aaa.sumdataA(bbb);
+
+    Complex o1, o2, o3;
+    o1.setData(1, 2);
+    o1.getData();
+    o2.setData(1, 2);
+    o2.getData();
+    o3=sumComplex(o1,o2);
+    o3.getData();
     return 0;
 }

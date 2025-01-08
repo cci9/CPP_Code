@@ -1,4 +1,3 @@
-ndl;
-    // cout<<&ctc<<" "<<ctc<<endl;
-    // // cout<<&ch<<" "<<ch<<endl;
-    // cout<<static_cast<const void*>(&ch)<<" "<<ch<<endl;
+ ctc;
+    // ctc.set(5, "ctc");
+    // ctc.show();
