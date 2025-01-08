@@ -33,6 +33,5 @@ int main()
     {
         cout << "Entered number is not an armstrong number" << endl;
     }
-
     return 0;
 }

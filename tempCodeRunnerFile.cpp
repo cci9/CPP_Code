@@ -1,4 +1,4 @@
-for (int i = 0; i < N; i++)
-    {
-        idx[i] = -1;
-    }
+ndl;
+    // cout<<&ctc<<" "<<ctc<<endl;
+    // // cout<<&ch<<" "<<ch<<endl;
+    // cout<<static_cast<const void*>(&ch)<<" "<<ch<<endl;

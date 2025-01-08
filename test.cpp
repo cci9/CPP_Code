@@ -87,10 +87,20 @@ int main()
     //     }
     // }
     // cout << ans;
-    int x = 12;
-    int x = 12;
-    int x = 12;
-    int x = 12;
+    // int x = 12;
+    // string test = "chetanchaudhari";
+    // for (int i = 0; i<test.length(); i++) {
+    //     if (test.at(i) != 'z') {
+    //         cout <<test.at(i);
+        
+    //     }
+    
+    // }
+
+    float x =10.0;
+    int16_t t= 20;
+    auto m = x*t;
+    cout<<typeid(m).name()<<endl;
 
     return 0;
 }
